@@ -3,7 +3,7 @@ import { Button, MessagePlugin, Select, Switch, SwitchValue, Tabs } from "tdesig
 import { ProjectContext } from "../../../../../..";
 import { FlexDescLine } from "../../../../../../../../components/FlexDescLine";
 import { useProjectActiveUpdate } from "../../../../../../../../hooks";
-import { AddAppsInfoTosdkFn, DeleteAppIdFn } from "../../../../../../../../requests";
+// import { AddAppsInfoTosdkFn, DeleteAppIdFn } from "../../../../../../../../requests";
 import { tryCatchFinally } from "../../../../../../../../tools";
 import { AppDetailsProps } from "../AppDetails";
 
@@ -25,12 +25,12 @@ export const SafetyTab: FC<AppDetailsProps> = ({ activeProjectInfo: { appInfo } 
 
   const onSwitchChange = useCallback(async (value: SwitchValue) => {
     if (value) {
-      const rst = await AddAppsInfoTosdkFn(appInfo)
-      console.log(rst);
+      // const rst = await AddAppsInfoTosdkFn(appInfo)
+      // console.log(rst);
       return
     } else {
       tryCatchFinally(async () => {
-        await DeleteAppIdFn(appInfo.id)
+        // await DeleteAppIdFn(appInfo.id)
       })
     }
     setIfDebug(value)

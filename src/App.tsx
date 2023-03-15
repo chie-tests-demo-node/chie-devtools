@@ -30,15 +30,27 @@ function App() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   const n = parseInt(window.prompt('input') as any)
-  //   console.log(n)
-  //   var mul = 1
-  //   for (var i = 1; i <= n; i++) {
-  //     mul = mul * i
-  //   }
-  //   console.log(mul)
-  // }, [])
+  useEffect(() => {
+    //  斐波那契数列
+    // 1 1 3 4 7 11 18 29
+    // const feiArrayFn = function (n: any): any {
+    //   if (n === 1 || n === 2) {
+    //     return 1
+    //   }
+    //   return feiArrayFn(n - 1) + feiArrayFn(n - 2)
+    // }
+    // console.log(feiArrayFn(29))
+    // 阶乘 (先执行的最后被执行完)
+    // 5*4*3*2*1
+    // const factorialFun = function (n: any): any {
+    //   if (n === 1 || n === 0) {
+    //     return 1
+    //   }
+    //   return n * factorialFun(n - 1)
+    // }
+    // console.log(factorialFun(5))
+    // 闭包
+  }, [])
 
   return (
     <GlobalDataContext.Provider

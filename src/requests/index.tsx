@@ -5,6 +5,7 @@ import { MessagePlugin } from "tdesign-react";
 interface IHttpReq {
   url: string;
   data?: any;
+  requestType?: 'post' | 'get';
   errorCb?: (error: string) => void;
   finalCb?: () => void;
 }
@@ -15,7 +16,9 @@ export async function apiPostRequest(params: IHttpReq): Promise<any> {
   }
   try {
     // { jsonData: params.data }    
-    const rst: any = await axios.get(params.url)
+    const rst: any = params.requestType === 'get' ?
+      await axios.get(`${params.url}${params.data}`) :
+      await axios.post(params.url, params.data)
     return Promise.resolve(rst)
   } catch (e: any) {
     MessagePlugin.error(e.message)
@@ -26,15 +29,8 @@ export async function apiPostRequest(params: IHttpReq): Promise<any> {
 }
 
 /**
- * 开启服务端sdk
+ * 新增人员
  */
-export async function AddAppsInfoTosdkFn(data?: any): Promise<any> {
-  return await apiPostRequest({ url: '/app/pre/store', data })
-}
-
-/**
- * 关闭服务端sdk
- */
-export async function DeleteAppIdFn(appId?: any): Promise<any> {
-  return await apiPostRequest({ url: `/app/pre/remove/${appId}` })
+export async function addGril(data?: any): Promise<any> {
+  return await apiPostRequest({ url: '/girl/add', data })
 }

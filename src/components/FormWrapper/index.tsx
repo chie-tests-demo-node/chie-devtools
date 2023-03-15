@@ -14,13 +14,13 @@ import { GlobalDataContext } from "../../App";
 export interface FormItem {
   label: string;
   name: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   initData?: any;
 }
 
 export interface FormWrapperProps {
-  formDataRules: { [key: string]: Array<FormRule> };
-  formInitData: any;
+  formDataRules?: { [key: string]: Array<FormRule> };
+  formInitData?: any;
   formItemList: FormItem[];
   loadingText: string;
   prevBtnTo?: string;
