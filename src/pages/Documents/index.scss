@@ -1,4 +1,8 @@
 
 .document-wapper{
   background-color: #fff;
+  padding: 20px;
+  >.t-table.t-vertical-align-top{
+    height: 100%;
+  }
 }

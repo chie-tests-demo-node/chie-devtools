@@ -31,6 +31,20 @@ export async function apiPostRequest(params: IHttpReq): Promise<any> {
 /**
  * 新增人员
  */
-export async function addGril(data?: any): Promise<any> {
+export async function addGirl(data?: any): Promise<any> {
   return await apiPostRequest({ url: '/girl/add', data })
+}
+
+/**
+ * 查询人员
+ */
+export async function queryAllGirl(): Promise<any> {
+  return await apiPostRequest({ url: '/girl/all', requestType: 'get' })
+}
+
+/**
+ * 
+ */
+export async function deleteGirl(): Promise<any> {
+
 }

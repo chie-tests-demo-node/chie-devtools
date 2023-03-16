@@ -20,6 +20,21 @@ import App from "./App";
 // db.sync.index.create({
 //   fields: ["appInfo.name"],
 // });
+// 立即执行函数
+function test() {
+  let arr = []
+  for (let i = 0; i < 10; i++) {
+    arr[i] = function () {
+      console.log(i + ' 哈哈')
+    }
+  }
+  return arr
+}
+let myArr = test()
+for (let j = 0; j < 10; j++) {
+  myArr[j]()
+}
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -1,7 +1,7 @@
 import { useCallback, useImperativeHandle, useState, forwardRef } from 'react'
 import { Dialog, Input, message } from 'tdesign-react'
 import { FormItem, FormWrapper } from "../../../components/FormWrapper";
-import { addGril } from '../../../requests';
+import { addGirl } from '../../../requests';
 
 
 export default forwardRef((props, ref) => {
@@ -35,8 +35,7 @@ export default forwardRef((props, ref) => {
           loadingText='加载中'
           onSubmit={async (form, ctx) => {
             const values = form.getFieldsValue(['name', 'age', 'skill'])
-            console.log(values)
-            await addGril(values)
+            await addGirl(values)
             message.success("添加成功")
             setVisible(false)
           }}
