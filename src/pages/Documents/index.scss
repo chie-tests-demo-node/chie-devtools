@@ -1,8 +1,15 @@
 
-.document-wapper{
-  background-color: #fff;
-  padding: 20px;
-  >.t-table.t-vertical-align-top{
-    height: 100%;
+.documentPage{
+  .topSearch{
+    background-color: #fff;
+    padding: 20px;
+  }
+  .document-wapper{
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 10px;
+    >.t-table.t-vertical-align-top{
+      height: 100%;
+    }
   }
 }

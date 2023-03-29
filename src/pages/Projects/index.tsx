@@ -19,8 +19,7 @@ export function Projects() {
     [refreshProjectList, switchActiveProject]
   );
 
-  const [projectAddPopupEle, projectAddPopupOperation] =
-    useProjectAdd(projectAddConfirm);
+  const [projectAddPopupEle, projectAddPopupOperation] = useProjectAdd(projectAddConfirm);
 
   return (
     <ProjectContext.Provider

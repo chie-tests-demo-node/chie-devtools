@@ -24,7 +24,9 @@ import { DbDataType, ProjectInfo } from "../../types";
  * @returns [项目列表, 刷新项目列表]
  */
 export function useProjectList(): [ProjectInfo[], () => void] {
-  const [projectInfoList, setProjectInfoList] = useState<ProjectInfo[]>([{ _id: '123', appInfo: {}, indexInfo: { createAt: new Date(), dataType: DbDataType.PROJECT_INFO, sorted: 2 } }]);
+  const [projectInfoList, setProjectInfoList] = useState<ProjectInfo[]>([
+    { _id: '123', appInfo: { id: '123', icon: "https://127.0.0.1:65528/icons/organization.png", name: '测试啊', shortDesc: '测试测试' }, indexInfo: { createAt: new Date(), dataType: DbDataType.PROJECT_INFO, sorted: 2 } }
+  ]);
   const refreshProjectList = useCallback(async () => {
     try {
       // setProjectInfoList(
@@ -240,6 +242,20 @@ export function useProjectActive(): [
 
   const queryActiveProjectInfo = useCallback(async () => {
     try {
+      setActiveProjectInfo({
+        _rev: '12334543',
+        _id: '123',
+        appInfo: {
+          id: '123',
+          name: '测试啊',
+          icon: 'https://127.0.0.1:65528/icons/organization.png',
+        },
+        indexInfo: {
+          createAt: new Date(),
+          dataType: DbDataType.PROJECT_INFO,
+          sorted: 2
+        }
+      })
       // setActiveProjectInfo(await db.get(activeProjectDbKey));
     } catch (e) {
       setActiveProjectInfo(undefined);

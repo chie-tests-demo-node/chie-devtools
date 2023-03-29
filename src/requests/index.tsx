@@ -15,11 +15,13 @@ export async function apiPostRequest(params: IHttpReq): Promise<any> {
     return Promise.reject('请求参数不能为空！')
   }
   try {
-    // { jsonData: params.data }    
     const rst: any = params.requestType === 'get' ?
-      await axios.get(`${params.url}${params.data}`) :
+      await axios.get(params.data ? `${params.url}${params.data}` : `${params.url}`) :
       await axios.post(params.url, params.data)
-    return Promise.resolve(rst)
+        .catch(function (error) {
+          console.log(error)
+        })
+    return Promise.resolve(rst.data)
   } catch (e: any) {
     MessagePlugin.error(e.message)
     throw e
@@ -43,8 +45,15 @@ export async function queryAllGirl(): Promise<any> {
 }
 
 /**
- * 
+ * 删除人员
  */
-export async function deleteGirl(): Promise<any> {
+export async function deleteGirl(id: any): Promise<any> {
+  return await apiPostRequest({ url: `/girl/delete/${id}`, requestType: 'get' })
+}
 
+/**
+ * 编辑人员
+ */
+export async function updateGirl(data: any): Promise<any> {
+  return await apiPostRequest({ url: '/girl/update', data })
 }

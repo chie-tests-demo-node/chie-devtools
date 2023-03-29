@@ -16,6 +16,8 @@ export const AppCard: FC<AppCardProps> = ({ projectInfo, active }) => {
     switchActiveProject(projectInfo);
   }, [projectInfo, switchActiveProject]);
 
+  console.log('appInfo', appInfo)
+
   return (
     <div
       onClick={onClick}

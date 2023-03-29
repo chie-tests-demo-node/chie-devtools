@@ -1,6 +1,7 @@
 
 import { FC, useState } from 'react';
 import { Table } from 'tdesign-react';
+import './index.scss';
 
 interface ITableProps {
   coloumWapper: any[],
@@ -23,7 +24,6 @@ export const TableWapper: FC<ITableProps> = ({
       verticalAlign="top"
       bordered
       hover
-      stripe
       tableLayout={tableLayout ? 'auto' : 'fixed'}
       rowClassName={({ rowIndex }) => `${rowIndex}-class`}
       cellEmptyContent={'-'}
@@ -46,7 +46,7 @@ export const TableWapper: FC<ITableProps> = ({
         console.log(pageInfo, 'onPageChange');
       }}
       onRowClick={({ row, index, e }) => {
-        console.log('onRowClick', { row, index, e });
+        // console.log('onRowClick', { row });
       }}
     />
   );

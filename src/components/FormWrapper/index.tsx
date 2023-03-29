@@ -29,6 +29,7 @@ export interface FormWrapperProps {
     form: FormInstanceFunctions<Data>,
     ctx: SubmitContext
   ): void | Promise<void>;
+  onCancle?: () => void;
 }
 
 export const FormWrapper: FC<FormWrapperProps> = ({
@@ -38,6 +39,7 @@ export const FormWrapper: FC<FormWrapperProps> = ({
   formItemList,
   prevBtnTo,
   onSubmit,
+  onCancle,
   submitBreakTo,
 }) => {
   const globalData = useContext(GlobalDataContext);
@@ -121,23 +123,22 @@ export const FormWrapper: FC<FormWrapperProps> = ({
         preventSubmitDefault
         resetType="initial"
         statusIcon
-        labelWidth={128}
+        labelWidth={68}
         rules={formDataRules}
         initialData={formInitData}
         onSubmit={formSubmit}
       >
         {formItemElements}
-        <div style={{ marginTop: "28px" }}>
+        <div style={{ marginTop: "28px", float: 'right' }}>
           {prevBtnTo && (
             <Button
-              onClick={prevBtnClick}
+              onClick={onCancle}
               theme="default"
-              style={{ float: "left" }}
             >
               取消
             </Button>
           )}
-          <Button type="submit" style={{ float: "right" }}>
+          <Button type="submit" style={{ marginLeft: 20 }}>
             确认
           </Button>
         </div>

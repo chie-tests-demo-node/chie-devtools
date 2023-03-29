@@ -1,0 +1,9 @@
+
+.t-table__header{
+  height: 60px;
+  min-width: 100%;
+  background-color: red;
+  .t-table.t-vertical-align-top th{
+    background-color: red;
+  }
+}

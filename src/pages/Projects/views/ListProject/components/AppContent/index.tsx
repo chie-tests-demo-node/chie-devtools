@@ -29,7 +29,9 @@ export const AppContent: FC = () => {
       showDeleteDialog(activeProjectInfo);
     },
     [activeProjectInfo, showDeleteDialog]
+
   );
+
   return activeProjectInfo ? (
     <>
       <div className="app-content">
@@ -107,7 +109,7 @@ export const AppContent: FC = () => {
                   &nbsp; 安全
                 </>
               }
-            ><SafetyTab activeProjectInfo={activeProjectInfo}/></TabPanel>{" "}
+            ><SafetyTab activeProjectInfo={activeProjectInfo} /></TabPanel>{" "}
             <TabPanel
               value={3}
               label={
